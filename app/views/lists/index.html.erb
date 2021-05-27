@@ -1,0 +1,10 @@
+<h1>Lists</h1>
+<% @lists.each do |list| %>
+<div>
+<%= link_to list.name, list_path(list) %>
+<%= link_to 'delete', list_path(list), method: :delete %>
+</div>
+<% end %>
+<div>
+  <%= link_to 'Create List', new_list_path  %>
+</div>
