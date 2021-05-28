@@ -11,3 +11,18 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "lists";
+
+.container {
+  background-color: #f7f7f7;
+  h1{
+    font-family: 'Questrial', sans-serif;
+  }
+}
+.nav-color{
+  background-color: #2e4750;
+  color:white;
+}
+.navbar-brand{
+  color:white;
+}

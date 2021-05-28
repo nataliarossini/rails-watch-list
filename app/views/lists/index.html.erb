@@ -1,10 +1,26 @@
-<h1>Lists</h1>
-<% @lists.each do |list| %>
+<div class="card-container">
+<h1>Movie Lists</h1>
 <div>
-<%= link_to list.name, list_path(list) %>
-<%= link_to 'delete', list_path(list), method: :delete %>
+  <%= link_to new_list_path  do %>
+  <div class="create">
+    <i class="fas fa-plus"> Create list</i>
+  </div>
+  <% end %>
 </div>
-<% end %>
-<div>
-  <%= link_to 'Create List', new_list_path  %>
+  <div class="list-cards">
+  <% @lists.each do |list| %>
+    <div class=" align-items d-flex justify-content-around flex-wrap bd-highlight">
+      <div class="list-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 100, crop: :fill %>')">
+        <div class="title">
+          <h3><%= link_to list.name.capitalize, list_path(list) %></h3>
+          <%= link_to list_path(list), method: :delete, data:{ confirm: "Are you sure?"}, class: 'btn-trash' do %>
+            <div>
+              <i class="fas fa-trash"></i>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
