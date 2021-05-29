@@ -10,7 +10,7 @@
   <div class="list-cards">
   <% @lists.each do |list| %>
     <div class=" align-items d-flex justify-content-around flex-wrap bd-highlight">
-      <div class="list-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 100, crop: :fill %>')">
+      <div class="list-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 100, crop: :fill unless list.photo.key.blank? %>')">
         <div class="title">
           <h3><%= link_to list.name.capitalize, list_path(list) %></h3>
           <%= link_to list_path(list), method: :delete, data:{ confirm: "Are you sure?"}, class: 'btn-trash' do %>
